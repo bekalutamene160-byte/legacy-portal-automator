@@ -1,42 +1,47 @@
 # ============================================
-# Legacy Portal Automator — requirements.txt
+# Legacy Portal Automator - requirements.txt
 # ============================================
-# Phase 1: package list (we install these in Phase 2 and pin exact versions).
+# Pinned to exact versions verified working together on Python 3.11.9 + Windows.
+# Tested: 2026-08-04.
 #
-# Install command (DO NOT run yet — we do this together in Phase 2):
+# Install command (PowerShell, with venv active):
 #   pip install -r requirements.txt
 #
-# After install, we'll run `pip freeze > requirements.txt` to pin exact versions
-# so the build is reproducible a year from now.
+# After installing browser-use, you MUST also run:
+#   playwright install chromium
+# This downloads the Chromium browser binary (~115 MB).
 
 # === Browser automation core ===
-browser-use              # LLM-driven browser agent (the brains)
-playwright               # Industry-standard browser automation
-playwright-stealth       # Anti-bot detection evasion
-
-# === LLM / LangChain (Groq integration) ===
-langchain                # Agent framework
-langchain-groq           # Groq LLM provider for LangChain
-langchain-core           # LangChain base types
+# Modern browser-use (0.13.7+) bundles its own ChatGroq - no langchain-groq needed!
+# This avoids a dependency conflict between langchain-groq (groq<1.0) and
+# browser-use (groq==1.0).
+browser-use==0.13.7
+playwright==1.62.0
+playwright-stealth==2.0.3
 
 # === Data validation ===
-pydantic                 # Type-safe schemas
-pydantic-settings        # Load .env into typed settings
+pydantic==2.12.5
+pydantic-settings==2.14.2
 
 # === API server ===
-fastapi                  # Async web framework
-uvicorn                  # ASGI server
-python-multipart         # Form parsing for FastAPI
+fastapi==0.141.1
+uvicorn==0.52.1
+python-multipart==0.0.32
 
 # === Utilities ===
-python-dotenv            # .env file loader
-httpx                    # Async HTTP client (for testing)
+python-dotenv==1.2.2
+httpx==0.28.1
 
 # === Testing ===
-pytest                   # Test framework
-pytest-asyncio           # Async test support
+pytest==9.1.1
+pytest-asyncio==1.4.0
 
 # === Demo legacy portal (the target we automate) ===
-reportlab                # PDF generation for fake announcements
-jinja2                   # HTML templates for the portal
-itsdangerous             # Signed cookies for portal sessions
+reportlab==4.4.9
+Jinja2==3.1.6
+itsdangerous==2.2.0
+
+# === Transitive dependencies we pin explicitly for stability ===
+groq==1.0.0              # Pinned by browser-use - do not change
+starlette==1.3.1         # Required by fastapi
+anyio==4.12.1            # Required by starlette/httpx

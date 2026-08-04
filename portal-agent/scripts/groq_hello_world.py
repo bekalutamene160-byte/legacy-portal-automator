@@ -11,6 +11,15 @@ Run AFTER installing all dependencies and creating your .env file.
 
 Usage (PowerShell, with venv active, from portal-agent/ folder):
     python scripts/groq_hello_world.py
+
+Expected output:
+    [OK] Groq client initialized
+    [OK] Sending test message to Llama 4 Scout...
+    [OK] Response received in 0.83s
+    [OK] Model reply: GROQ_CONNECTION_OK
+
+If you see AuthenticationError, your GROQ_API_KEY is wrong or expired.
+If you see RateLimitError, you hit the free tier limit - wait 60 seconds and retry.
 """
 
 import asyncio
@@ -38,16 +47,15 @@ if not api_key or api_key == "gsk_your_key_here":
 print(f"[OK] Loaded .env from: {env_path}")
 print(f"[OK] API key found: gsk_...{api_key[-4:]}  (last 4 chars only, for safety)")
 
-# Use langchain_groq directly — browser_use's wrapper has message-type bugs
+# Now try to import browser_use's ChatGroq
+# Now try to import browser_use's ChatGroq (bundled with browser-use, no langchain needed)
 try:
-    from langchain_groq import ChatGroq
-    print("[OK] langchain_groq.ChatGroq imported successfully")
+    from browser_use.llm import ChatGroq
+    print("[OK] browser_use.llm.ChatGroq imported successfully")
 except ImportError as e:
     print(f"[FAIL] Could not import ChatGroq: {e}")
-    print("       Run: pip install langchain-groq")
+    print("       Run: pip install browser-use")
     sys.exit(1)
-
-from langchain_core.messages import HumanMessage
 
 
 async def test_groq_connection():
@@ -64,7 +72,8 @@ async def test_groq_connection():
     start_time = time.time()
 
     try:
-        messages = [HumanMessage(content="Reply with exactly: GROQ_CONNECTION_OK")]
+        # browser_use ChatGroq is async - use ainvoke
+        messages = [{"role": "user", "content": "Reply with exactly: GROQ_CONNECTION_OK"}]
         response = await llm.ainvoke(messages)
         elapsed = time.time() - start_time
 
