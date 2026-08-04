@@ -1,0 +1,28 @@
+# ============================================
+# Legacy Portal Automator — .gitattributes
+# ============================================
+# Normalizes line endings so the project works identically on Windows, macOS,
+# and Linux/Docker. WITHOUT this file, you will hit bizarre Docker build bugs
+# (shell scripts with CRLF endings fail silently in Linux containers).
+
+# Default: all text files use LF (Unix-style) in the repo
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF (PowerShell and batch files need it)
+*.bat   text eol=crlf
+*.ps1   text eol=crlf
+*.cmd   text eol=crlf
+
+# Shell scripts must be LF or they break in Docker
+*.sh    text eol=lf
+
+# Binary files — git should not try to merge or diff these
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.zip   binary
+*.tar   binary
+*.gz    binary

@@ -1,0 +1,42 @@
+# ============================================
+# Legacy Portal Automator — requirements.txt
+# ============================================
+# Phase 1: package list (we install these in Phase 2 and pin exact versions).
+#
+# Install command (DO NOT run yet — we do this together in Phase 2):
+#   pip install -r requirements.txt
+#
+# After install, we'll run `pip freeze > requirements.txt` to pin exact versions
+# so the build is reproducible a year from now.
+
+# === Browser automation core ===
+browser-use              # LLM-driven browser agent (the brains)
+playwright               # Industry-standard browser automation
+playwright-stealth       # Anti-bot detection evasion
+
+# === LLM / LangChain (Groq integration) ===
+langchain                # Agent framework
+langchain-groq           # Groq LLM provider for LangChain
+langchain-core           # LangChain base types
+
+# === Data validation ===
+pydantic                 # Type-safe schemas
+pydantic-settings        # Load .env into typed settings
+
+# === API server ===
+fastapi                  # Async web framework
+uvicorn                  # ASGI server
+python-multipart         # Form parsing for FastAPI
+
+# === Utilities ===
+python-dotenv            # .env file loader
+httpx                    # Async HTTP client (for testing)
+
+# === Testing ===
+pytest                   # Test framework
+pytest-asyncio           # Async test support
+
+# === Demo legacy portal (the target we automate) ===
+reportlab                # PDF generation for fake announcements
+jinja2                   # HTML templates for the portal
+itsdangerous             # Signed cookies for portal sessions
