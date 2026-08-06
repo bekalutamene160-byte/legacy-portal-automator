@@ -10,8 +10,8 @@ Integrate a free LLM API (Groq) instead of paid OpenAI
 Ship a FastAPI service with typed I/O and OpenAPI docs
 Write clean, tested, Dockerized Python code
 Think in 5-stage agent loops: Plan → Execute → Verify → Recover → Report
-[![Status](https://img.shields.io/badge/status-phase_5_browser-green)]()
-[![Tests](https://img.shields.io/badge/tests-93_passing-brightgreen)]()
+[![Status](https://img.shields.io/badge/status-phase_6_agent-green)]()
+[![Tests](https://img.shields.io/badge/tests-120_passing-brightgreen)]()
 
 
 Tech Stack
