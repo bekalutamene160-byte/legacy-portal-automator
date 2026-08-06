@@ -10,16 +10,19 @@ Integrate a free LLM API (Groq) instead of paid OpenAI
 Ship a FastAPI service with typed I/O and OpenAPI docs
 Write clean, tested, Dockerized Python code
 Think in 5-stage agent loops: Plan → Execute → Verify → Recover → Report
+[![Status](https://img.shields.io/badge/status-phase_5_browser-green)]()
+[![Tests](https://img.shields.io/badge/tests-93_passing-brightgreen)]()
+
 
 Tech Stack
 
 Layer	                      Technology	                                                  Cost
-LLM	                        Groq (Llama 4 Scout)	                                           Free
-Browser automation	       Playwright + browser-use	                                           Free (OSS)
-Stealth	                   playwright-stealth                                                  Free (OSS)
-API server	               FastAPI + Uvicorn	                                               Free (OSS)
-Validation	               Pydantic v2	                                                       Free (OSS)
-Target portal	           Self-hosted FastAPI demo	                                           Free
+LLM	                        Groq (Llama 4 Scout)	                                                     Free
+Browser automation	       Playwright + browser-use	                                                   Free (OSS)
+Stealth	                   playwright-stealth                                             Free (OSS)
+API server	               FastAPI + Uvicorn	                                                    Free (OSS)
+Validation	               Pydantic v2	                                                           Free (OSS)
+Target portal	           Self-hosted FastAPI demo	                                                          Free
 
 
 Total cost to build, demo, and deploy: $0
