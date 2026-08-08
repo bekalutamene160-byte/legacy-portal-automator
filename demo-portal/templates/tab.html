@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tab_name }} &mdash; Legacy Portal{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="welcome-bar">
+        <div class="welcome-text">
+            Welcome, <strong>{{ username }}</strong>
+        </div>
+        <div class="logout-link">
+            <a href="/logout">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="tab-nav">
+        <a href="/dashboard" class="tab-link">Home</a>
+        {% for t in all_tabs %}
+            <a href="/tab/{{ t }}"
+               class="tab-link {{ 'active' if t == tab_name else '' }}">{{ t }}</a>
+        {% endfor %}
+    </div>
+
+    <h2>{{ tab_name }}</h2>
+    <p class="hint-text">
+        Click a document below to download it.
+    </p>
+
+    <table class="file-table">
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Size</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in files %}
+            <tr>
+                <td class="file-name">{{ f.name }}</td>
+                <td class="file-size">
+                    {% if f.exists %}
+                        {{ f.size_bytes }} bytes
+                    {% else %}
+                        <em>(missing)</em>
+                    {% endif %}
+                </td>
+                <td class="file-action">
+                    {% if f.exists %}
+                        <a href="/download/{{ f.name }}" class="btn-download">Download</a>
+                    {% else %}
+                        <span class="btn-disabled">Unavailable</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" class="empty-state">No documents in this section.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

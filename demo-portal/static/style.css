@@ -1,0 +1,338 @@
+/* Legacy Portal - intentionally retro styling
+ *
+ * This CSS deliberately uses an old-fashioned look:
+ * - gradient header (very 2008)
+ * - system fonts only (no web fonts)
+ * - table-based layout for file lists (classic portal style)
+ * - blue links with underlines
+ * - boxy buttons with bevels
+ *
+ * The point is to look like a real legacy portal, not a modern SPA.
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Header === */
+.header {
+    background: linear-gradient(to bottom, #4a6ea9 0%, #2c4566 100%);
+    color: white;
+    padding: 12px 0;
+    border-bottom: 3px solid #1a2a3f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.header-subtitle {
+    font-size: 11px;
+    color: #b8c8de;
+    margin-top: 2px;
+}
+
+/* === Footer === */
+.footer {
+    background: #2c4566;
+    color: #b8c8de;
+    padding: 10px 0;
+    margin-top: 40px;
+    border-top: 2px solid #1a2a3f;
+    font-size: 11px;
+    text-align: center;
+}
+
+.footer-inner {
+    width: 900px;
+    margin: 0 auto;
+}
+
+/* === Login page === */
+.login-container {
+    width: 400px;
+    margin: 60px auto;
+}
+
+.login-box {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #2c4566;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.form-field {
+    margin-bottom: 14px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-field input[type="text"],
+.form-field input[type="password"] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.form-field input:focus {
+    outline: 2px solid #4a6ea9;
+    outline-offset: -1px;
+}
+
+.btn-login {
+    background: linear-gradient(to bottom, #5a8a3a 0%, #3a6a1a 100%);
+    color: white;
+    border: 1px solid #2a4a0a;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(to bottom, #6a9a4a 0%, #4a7a2a 100%);
+}
+
+.error-message {
+    background: #fff4f4;
+    border: 1px solid #d44040;
+    color: #a02020;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+    font-size: 13px;
+}
+
+.login-hint {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f8e8;
+    border: 1px solid #d4d4a8;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #555;
+}
+
+.login-hint code {
+    background: #e8e8d8;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+/* === Dashboard === */
+.dashboard-container {
+    width: 900px;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.welcome-bar {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.welcome-text {
+    font-size: 13px;
+}
+
+.logout-link a {
+    color: #2c4566;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: white;
+}
+
+.logout-link a:hover {
+    background: #f0f0f0;
+}
+
+h2 {
+    color: #2c4566;
+    font-size: 18px;
+    margin: 0 0 8px 0;
+}
+
+.hint-text {
+    color: #666;
+    font-size: 13px;
+    margin: 0 0 16px 0;
+}
+
+/* === Tab cards === */
+.tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.tab-card {
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+}
+
+.tab-card:hover {
+    border-color: #4a6ea9;
+}
+
+.tab-card a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: #333;
+    background: linear-gradient(to bottom, #fafafa 0%, #eaeaea 100%);
+}
+
+.tab-card-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c4566;
+    margin-bottom: 4px;
+}
+
+.tab-card-count {
+    font-size: 12px;
+    color: #666;
+}
+
+/* === Tab nav (on tab pages) === */
+.tab-nav {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+}
+
+.tab-link {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-right: 4px;
+    text-decoration: none;
+    color: #2c4566;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    font-size: 13px;
+}
+
+.tab-link:hover {
+    background: #e0e0e0;
+}
+
+.tab-link.active {
+    background: white;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+    font-weight: bold;
+}
+
+/* === File table === */
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    font-size: 13px;
+}
+
+.file-table th {
+    background: #e8e8e8;
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    color: #333;
+}
+
+.file-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-table tr:hover {
+    background: #f8f8f8;
+}
+
+.file-name {
+    font-family: Consolas, "Courier New", monospace;
+    color: #2c4566;
+}
+
+.file-size {
+    color: #666;
+}
+
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(to bottom, #4a7ec8 0%, #2c5e9c 100%);
+    color: white;
+    padding: 4px 12px;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid #1a3e6c;
+    font-size: 12px;
+}
+
+.btn-download:hover {
+    background: linear-gradient(to bottom, #5a8ed8 0%, #3c6eac 100%);
+}
+
+.btn-disabled {
+    color: #999;
+    font-style: italic;
+}
+
+.empty-state {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 24px;
+}

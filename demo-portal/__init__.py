@@ -1,0 +1,1 @@
+"""Legacy Portal - demo target app package."""

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard &mdash; Legacy Portal{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="welcome-bar">
+        <div class="welcome-text">
+            Welcome, <strong>{{ username }}</strong>
+        </div>
+        <div class="logout-link">
+            <a href="/logout">Sign Out</a>
+        </div>
+    </div>
+
+    <h2>Document Sections</h2>
+    <p class="hint-text">
+        Select a section below to view available documents.
+    </p>
+
+    <div class="tabs-grid">
+        {% for tab in tabs %}
+        <div class="tab-card">
+            <a href="/tab/{{ tab.name }}">
+                <div class="tab-card-name">{{ tab.name }}</div>
+                <div class="tab-card-count">{{ tab.file_count }} document{{ '' if tab.file_count == 1 else 's' }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

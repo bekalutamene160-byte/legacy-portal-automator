@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Sign In &mdash; Legacy Portal{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Sign In</h2>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="post" action="/login">
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text"
+                       id="username"
+                       name="username"
+                       value="{{ username | default('') }}"
+                       required
+                       autocomplete="username">
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       required
+                       autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-sign-in">Sign In</button>
+        </form>
+
+        <div class="demo-creds">
+            <p><strong>Demo credentials:</strong></p>
+            <p>Username: <code>admin</code></p>
+            <p>Password: <code>portal123</code></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
