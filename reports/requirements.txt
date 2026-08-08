@@ -1,0 +1,4 @@
+# Phase 9: PDF Report Generator Dependencies
+reportlab==4.4.9
+pypdf==5.8.0
+pytest==9.1.1
