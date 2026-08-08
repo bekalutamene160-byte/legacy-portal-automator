@@ -53,3 +53,7 @@ logs/
 
 # === Playwright browser binaries (installed per-machine) ===
 playwright-browsers/
+# Downloads (from agent runs)
+portal-agent/my_custom_downloads/
+portal-agent/test_downloads/
+demo-portal/pdfs/*.pdf

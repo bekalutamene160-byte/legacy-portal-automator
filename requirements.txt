@@ -1,47 +1,25 @@
-# ============================================
-# Legacy Portal Automator - requirements.txt
-# ============================================
-# Pinned to exact versions verified working together on Python 3.11.9 + Windows.
-# Tested: 2026-08-04.
-#
-# Install command (PowerShell, with venv active):
-#   pip install -r requirements.txt
-#
-# After installing browser-use, you MUST also run:
-#   playwright install chromium
-# This downloads the Chromium browser binary (~115 MB).
+# Legacy Portal Automator - Root Requirements
+# Install each package's requirements individually for full isolation,
+# OR use this file to install everything at once.
 
-# === Browser automation core ===
-# Modern browser-use (0.13.7+) bundles its own ChatGroq - no langchain-groq needed!
-# This avoids a dependency conflict between langchain-groq (groq<1.0) and
-# browser-use (groq==1.0).
+# Portal Agent
 browser-use==0.13.7
-playwright==1.62.0
-playwright-stealth==2.0.3
+pydantic==2.13.5
+pydantic-settings==2.11.0
+python-dotenv==1.1.1
 
-# === Data validation ===
-pydantic==2.12.5
-pydantic-settings==2.14.2
-
-# === API server ===
+# Demo Portal & Server
 fastapi==0.141.1
 uvicorn==0.52.1
+jinja2==3.1.6
 python-multipart==0.0.32
-
-# === Utilities ===
-python-dotenv==1.2.2
 httpx==0.28.1
+starlette==0.48.0
 
-# === Testing ===
+# Reports
+reportlab==4.4.9
+pypdf==5.8.0
+
+# Testing
 pytest==9.1.1
 pytest-asyncio==1.4.0
-
-# === Demo legacy portal (the target we automate) ===
-reportlab==4.4.9
-Jinja2==3.1.6
-itsdangerous==2.2.0
-
-# === Transitive dependencies we pin explicitly for stability ===
-groq==1.0.0              # Pinned by browser-use - do not change
-starlette==1.3.1         # Required by fastapi
-anyio==4.12.1            # Required by starlette/httpx
