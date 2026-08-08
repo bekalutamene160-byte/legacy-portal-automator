@@ -1,0 +1,11 @@
+# Phase 8: FastAPI Server Dependencies
+# These are already installed in the shared .venv (via portal-agent and demo-portal),
+# but we list them here for documentation and reproducibility.
+
+fastapi==0.141.1
+uvicorn==0.52.1
+httpx==0.28.1
+pydantic==2.13.5
+pydantic-settings==2.11.0
+pytest==9.1.1
+pytest-asyncio==1.4.0
